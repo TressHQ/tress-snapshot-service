@@ -5,14 +5,14 @@ module ImageTemplates
     def render_options
       @options[:name] = EmojiHelper.emojify(@options[:name])
       @options[:subject_name] = truncate_text(@options[:subject_name], 35)
-      @options[:subject_name] = EmojiHelper.emojify(":speech_balloon: on #{@options[:subject_name]}")
+      @options[:subject_name] = EmojiHelper.emojify("asked: #{@options[:subject_name]}")
       @options[:content] = EmojiHelper.emojify(@options[:content])
 
       super
     end
 
     def allowed_options
-      %w(content name user_id subject_name min_height)
+      %w(content name user_avatar subject_name min_height)
     end
 
     def erb_template
